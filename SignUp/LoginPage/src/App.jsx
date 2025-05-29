@@ -5,16 +5,21 @@ import {
 
 import React from "react";
 import ReactDOM from "react-dom/client";
+import SignUp from "./components/signUp/SignUp";
 import SignIn from "./components/signIn/SignIn";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/home",
     element: <div>Hello World</div>,
   },
    {
-    path: "/home",
+    path: "/signin",
     element: <SignIn/>,
+  },
+  {
+    path: "/signup",
+    element: <SignUp/>,
   },
 ]);
 

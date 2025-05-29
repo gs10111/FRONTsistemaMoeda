@@ -1,56 +1,60 @@
 import { Button, Container, FormControl, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { UserService } from "../../api/Service";
-import  './SignIn.css'
+import { UserLoginService } from "../../api/Service";
 
-export interface UserProps {
+
+export interface UserLoginProps {
     name: string;
     password: string;
 }
 
 const SignIn: React.FC = () => {
-    const [user, setUser] = useState<UserProps>({name: "", password:""})
-    const {postLogin} = UserService()
+    const [userLogin, setUser] = useState<UserLoginProps>({ name: "", password: "" })
+    const { postLogin } = UserLoginService()
 
     const OnSubmitHandler = () => {
-        console.log(user)
-        postLogin(user)
+        console.log(userLogin)
+        postLogin(userLogin)
     }
- 
+
     return (
         <Container className="form-signin">
-        <FormControl style={{backgroundColor:"white",padding:"4rem"}}>
-              <Typography variant="h4" gutterBottom> Entrar</Typography>
-            <TextField
-                required
-                id="outlined-required"
-                label="Nome"
-                value={user.name}
-                onChange={event => setUser((prev) =>({
-                    ...prev,
-                    name:event.target.value
-                }))}
-               
-            />
-            <br />
-            <TextField
-                required
-                id="outlined-required"
-                label="Senha"
-                value={user.password}
-                onChange={event => setUser((prev) =>({
-                    ...prev,
-                    password:event.target.value
-                }))}
-                
-            />
-            <br />
-            <Button color="secondary"
-                type="button"
-                onClick={() => OnSubmitHandler()}
-            >Entrar
-            </Button>
-        </FormControl>
+            <FormControl style={{ backgroundColor: "white", padding: "4rem", borderRadius: "50px"}}>
+                <Typography variant="h4" gutterBottom align="center"> Entrar</Typography>
+                <TextField
+                    required
+                    id="outlined-required"
+                    label="Nome"
+                    value={userLogin.name}
+                    onChange={event => setUser((prev) => ({
+                        ...prev,
+                        name: event.target.value
+                    }))}
+
+                />
+                <br />
+                <TextField
+                    required
+                    type="password"
+                    id="outlined-required"
+                    label="Senha"
+                    value={userLogin.password}
+                    onChange={event => setUser((prev) => ({
+                        ...prev,
+                        password: event.target.value
+                    }))}
+
+                />
+                <br />
+                <Button color="secondary"
+                    type="button"
+                    onClick={() => OnSubmitHandler()}
+                >Entrar
+                </Button>
+                <Button>
+                    <a className="signup" href="/signup">cadastrar</a>
+                </Button>
+            </FormControl>
         </Container>
     );
 };

@@ -1,10 +1,7 @@
-.form-signin{
-    display: flex !important;
-    justify-content: center;
+.signup{
     align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: gray;
-    margin: 0 !important;
-
+    padding-left: 0;
+    color: rgba(182,39,183,255);
+    font-size: smaller;
+    padding-top: 20;
 }
