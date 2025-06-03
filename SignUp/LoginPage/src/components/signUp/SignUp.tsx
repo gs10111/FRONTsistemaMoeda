@@ -87,6 +87,7 @@ const SignUp: React.FC = () => {
                 <Button color="secondary"
                     type="button"
                     onClick={() => OnSubmitHandler()}
+                    disabled={!userRegister.cpf || !userRegister.name || !userRegister.email || !userRegister.password}
                 >Registrar
                 </Button>
             </FormControl>

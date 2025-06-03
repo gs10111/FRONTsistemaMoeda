@@ -22,9 +22,10 @@ const SignIn: React.FC = () => {
             <FormControl style={{ backgroundColor: "white", padding: "4rem", borderRadius: "50px"}}>
                 <Typography variant="h4" gutterBottom align="center"> Entrar</Typography>
                 <TextField
-                    required
+                    required={true}
                     id="outlined-required"
                     label="Nome"
+                    type="text"
                     value={userLogin.name}
                     onChange={event => setUser((prev) => ({
                         ...prev,
@@ -49,6 +50,7 @@ const SignIn: React.FC = () => {
                 <Button color="secondary"
                     type="button"
                     onClick={() => OnSubmitHandler()}
+                    disabled={!userLogin.name}
                 >Entrar
                 </Button>
                 <Button>

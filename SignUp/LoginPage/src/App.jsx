@@ -7,11 +7,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import SignUp from "./components/signUp/SignUp";
 import SignIn from "./components/signIn/SignIn";
+import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
+import Advantage from "./pages/advantages/Advantage";
 
 const router = createBrowserRouter([
   {
     path: "/home",
-    element: <div>Hello World</div>,
+    element: <Home/>,
   },
    {
     path: "/signin",
@@ -21,6 +24,14 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <SignUp/>,
   },
+
+  {path: "/vantagens",
+    element: <Advantage/>
+  },
+  {path: "/n1",
+    element: <br/>
+  },
+
 ]);
 
 const App = () =>{
