@@ -1,15 +1,15 @@
 import { Button, Container, FormControl, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { UserLoginService } from "../../api/Service";
+import { UserLoginService } from "../../api/UserService";
 
 
 export interface UserLoginProps {
-    name: string;
+    usernameOrEmail: string;
     password: string;
 }
 
 const SignIn: React.FC = () => {
-    const [userLogin, setUser] = useState<UserLoginProps>({ name: "", password: "" })
+    const [userLogin, setUser] = useState<UserLoginProps>({ usernameOrEmail: "", password: "" })
     const { postLogin } = UserLoginService()
 
     const OnSubmitHandler = () => {
@@ -26,10 +26,10 @@ const SignIn: React.FC = () => {
                     id="outlined-required"
                     label="Nome"
                     type="text"
-                    value={userLogin.name}
+                    value={userLogin.usernameOrEmail}
                     onChange={event => setUser((prev) => ({
                         ...prev,
-                        name: event.target.value
+                        usernameOrEmail: event.target.value
                     }))}
 
                 />
@@ -50,7 +50,7 @@ const SignIn: React.FC = () => {
                 <Button color="secondary"
                     type="button"
                     onClick={() => OnSubmitHandler()}
-                    disabled={!userLogin.name}
+                    disabled={!userLogin.usernameOrEmail}
                 >Entrar
                 </Button>
                 <Button>

@@ -1,6 +1,5 @@
 import { Button, FormControl, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
-import { UserTransferList } from "../../api/Service";
 import "./NewTransfer.css";
 
 const NewTransfer: React.FC = () => {
@@ -111,3 +110,7 @@ const NewTransfer: React.FC = () => {
 };
 
 export default NewTransfer;
+function UserTransferList(): { getUsers: any; } {
+    throw new Error("Function not implemented.");
+}
+
